@@ -1,0 +1,46 @@
+.text-editor {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    max-width: 600px;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+  }
+
+  .editorbar {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5px;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .editorbar button {
+    border: none;
+    background: none;
+    padding: 5px 10px;
+    margin: 2px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 3px;
+    transition: background-color 0.2s;
+  }
+
+  .editorbar button:hover {
+    background-color: #e0e0e0;
+  }
+
+  .editor-area {
+    min-height: 200px;
+    padding: 10px;
+    font-size: 16px;
+    line-height: 1.5;
+    border: none;
+    outline: none;
+    background-color: #fff;
+  }
+
+  .editor-area:focus {
+    border: 1px solid #ccc;
+  }
