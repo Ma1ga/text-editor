@@ -6,35 +6,77 @@ const centerButton = document.getElementById('center');
 const rightButton = document.getElementById('right');
 const editor = document.querySelector('.editor-area');
 const bButton = document.getElementById("b")
+const fontUpButton = document.getElementById("font-size+")
+const fontLowButton = document.getElementById("font-size-")
+const textUnderline = document.getElementById("underline")
+const cursor = document.getElementById("cursor")
+const roboto = document.getElementById("Roboto")
+const robotoSlab = document.getElementById("Slab")
+const smooch = document.getElementById("Smooch")
+const colorPicker = document.getElementById("colorPicker");
+const textElement = document.getElementById("textElement");
+const fontSelector = document.getElementById("fontSelector");
+const letterSpacing = document.getElementById("letter-spacing")
+
+
+
 
 function applyStyle(action) {
     const selection = window.getSelection();
     if (selection.rangeCount > 0) {
         const range = selection.getRangeAt(0);
-        const parent = range.commonAncestorContainer.parentElement;
-
+        const parElement = range.commonAncestorContainer.parentElement;
+        
 
         if (action === 'h1') {
-            parent.style.fontSize = '32px';
-            parent.style.fontWeight = 'bold';
+            parElement.style.fontSize = '32px';
+            parElement.style.fontWeight = 'bold';
         } else if (action === 'h2') {
-            parent.style.fontSize = '24px';
-            parent.style.fontWeight = 'bold';
+            parElement.style.fontSize = '24px';
+            parElement.style.fontWeight = 'bold';
         } else if (action === 'p') {
-            parent.style.fontSize = '16px';
-            parent.style.fontWeight = 'normal';
+            parElement.style.fontSize = '16px';
+            parElement.style.fontWeight = 'normal';
         } else if (action === 'left') {
-            parent.style.textAlign = 'left';
+            parElement.style.textAlign = 'left';
         } else if (action === 'center') {
-            parent.style.textAlign = 'center';
+            parElement.style.textAlign = 'center';
         } else if (action === 'right') {
-            parent.style.textAlign = 'right';
+            parElement.style.textAlign = 'right';
         }else if (action === "b"){
-          parent.style.fontWeight = "bold"
+            parElement.style.fontWeight = "bold"
+            
+        }else if (action === "font-") {
+            const currentFontSize = parseInt(window.getComputedStyle(parElement).fontSize, 10);
+            if (currentFontSize > 10) {
+                parElement.style.fontSize = (currentFontSize - 1) + "px";
+            }
+        } else if (action === "font+") {
+            const currentFontSize = parseInt(window.getComputedStyle(parElement).fontSize, 10);
+            parElement.style.fontSize = (currentFontSize + 1) + "px";
+        }else if (action === "underline") {
+            parElement.style.textDecoration = "underline"
+        }else if (action === "cursor") {
+            parElement.style.cursor  = "pointer"
         }
+        
+          
     }
 }
+colorPicker.addEventListener("input", () => {
+    const selectedColor = colorPicker.value; 
+    textElement.style.color = selectedColor; 
+});
 
+fontSelector.addEventListener("change", () => {
+    const selectedFont = fontSelector.value; 
+    textElement.style.fontFamily = selectedFont; 
+});
+
+cursor.addEventListener('click', () => applyStyle('cursor'));
+textUnderline.addEventListener('click', () => applyStyle('underline'));
+fontUpButton.addEventListener('click', () => applyStyle('font+'));
+fontLowButton.addEventListener('click', () => applyStyle('font-'));
 bButton.addEventListener('click', () => applyStyle('b'));
 h1Button.addEventListener('click', () => applyStyle('h1'));
 h2Button.addEventListener('click', () => applyStyle('h2'));

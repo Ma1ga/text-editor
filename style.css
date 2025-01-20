@@ -11,6 +11,8 @@
   .editorbar {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
     padding: 5px;
     background-color: #f9f9f9;
     border-bottom: 1px solid #ddd;
@@ -30,7 +32,14 @@
   .editorbar button:hover {
     background-color: #e0e0e0;
   }
-
+.sub-bar2 {
+  width: 25%;
+  display: flex;
+  flex-direction: row;
+}
+.sub-bar3 {
+  width: 15%;
+}
   .editor-area {
     min-height: 200px;
     padding: 10px;

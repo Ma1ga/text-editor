@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Smooch+Sans:wght@100..900&display=swap" rel="stylesheet">    
     <title>Document</title>
 </head>
 <body>
@@ -12,19 +19,41 @@
   <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Simple Editor</title>
+      <title>Editor-Text</title>
   </head>
   <body>
       <div class="editorbar">
-          <button id="h1">H1</button>
-          <button id="h2">H2</button>
-          <button id="p">P</button>
-          <button id="left">Left</button>
-          <button id="center">Center</button>
-          <button id="right">Right</button>
-          <button id="b">B</button>
+        <div class="sub-bar">
+            <button id="h1">H1</button>
+            <button id="h2">H2</button>
+            <button id="p">P</button>
+            <button id="left">Left</button>
+            <button id="center">Center</button>
+            <button id="right">Right</button>
+            <button id="b">B</button>
+            <button id="cursor">I</button>
+            <button id="underline">U</button>
+        </div>
+        <div class="sub-bar2">
+            <p>font-size</p>
+            <button id="font-size+">+</button>
+            <button id="font-size-">-</button>
+            
+        </div>
+        <div class="sub-bar3">
+            <select name="fontSelector" id="fontSelector" >
+                <option value="">choose font-Family</option>
+                <option value="Roboto">Roboto</option>
+                <option value="'Roboto Slab'">Roboto Slab</option>
+                <option value="'Smooch Sans'">Smooch Sans</option>
+            </select>  
+            <span>letter-spacing</span>        
+            <input type="range" name="" id="letter-spacing" value="0" min="0" max="10" placeholder="letter-spacing">
+            <input type="color" id="colorPicker">
+        </div>
+          
       </div>
-      <div class="editor-area" contenteditable="true" style="border: 1px solid #ccc; padding: 10px; min-height: 200px;">
+      <div class="editor-area" contenteditable="true" style="border: 1px solid #ccc; padding: 10px; min-height: 200px;" id="textElement">
           Напишіть Текст
       </div>
   
