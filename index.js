@@ -17,7 +17,24 @@ const colorPicker = document.getElementById("colorPicker");
 const textElement = document.getElementById("textElement");
 const fontSelector = document.getElementById("fontSelector");
 const letterSpacing = document.getElementById("letter-spacing")
+const letterSpacingInput = document.getElementById('letter-spacing');
+const letterSpacingValue = document.getElementById('letter-spacing-value');
+const lineHeight = document.getElementById("line-height")
+const lineHeightValue = document.getElementById("line-height-value")
+const transformSelect = document.getElementById("transformSelect")
 
+
+
+letterSpacingInput.addEventListener('input', () => {
+  const spacing = `${letterSpacingInput.value}px`;
+  editor.style.letterSpacing = spacing; 
+  letterSpacingValue.textContent = spacing;
+});
+lineHeight.addEventListener('input', () => {
+    const lineHeights = `${lineHeight.value}px`;
+    editor.style.lineHeight = lineHeights; 
+    lineHeightValue.textContent = lineHeights;
+  });
 
 
 
@@ -71,6 +88,10 @@ colorPicker.addEventListener("input", () => {
 fontSelector.addEventListener("change", () => {
     const selectedFont = fontSelector.value; 
     textElement.style.fontFamily = selectedFont; 
+});
+transformSelect.addEventListener("change", () => {
+    const selectedTransform = transformSelect.value; 
+    textElement.style.textTransform = selectedTransform; 
 });
 
 cursor.addEventListener('click', () => applyStyle('cursor'));
