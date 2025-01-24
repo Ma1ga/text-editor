@@ -22,9 +22,23 @@ const letterSpacingValue = document.getElementById('letter-spacing-value');
 const lineHeight = document.getElementById("line-height")
 const lineHeightValue = document.getElementById("line-height-value")
 const transformSelect = document.getElementById("transformSelect")
+const shadowX = document.getElementById("shadows-x")
+const shadowY = document.getElementById("shadows-y")
+const shadowBlur = document.getElementById("shadows-blur")
+const shadowColor = document.getElementById("shadows-color")
 
 
-
+function updateTextShadows() {
+    const x = shadowX.value
+    const y = shadowY.value
+    const blur = shadowBlur.value
+    const color = shadowColor.value
+    
+    editor.style.textShadow = `${x}px ${y}px ${blur}px ${color}`
+}
+[shadowX, shadowY, shadowBlur, shadowColor].forEach(input => {
+    input.addEventListener('input', updateTextShadows);
+  });
 letterSpacingInput.addEventListener('input', () => {
   const spacing = `${letterSpacingInput.value}px`;
   editor.style.letterSpacing = spacing; 
